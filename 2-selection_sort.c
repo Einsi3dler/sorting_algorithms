@@ -1,10 +1,12 @@
 #include "sort.h"
+
 /**
  * selection_sort - sorts an array of number using selection sort
  * @array: the array contains numbers
  * @size: the array size
  * Return:void
  */
+
 void selection_sort(int *array, size_t size)
 {
 	size_t i;
