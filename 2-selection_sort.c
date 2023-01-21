@@ -30,8 +30,8 @@ void selection_sort(int *array, size_t size)
 			hold = array[i];
 			array[i] = array[temp];
 			array[temp] = hold;
+			print_array(array, size);
 		}
 		flag = 0;
-		print_array(array, size);
 	}
 }
