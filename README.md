@@ -4,9 +4,8 @@ This Sorting Algorithms project was done by **Sylvester Divine** and **Adejumo A
 It aims to learn about sorting algorithms (bubble sort, insertion sort, selection sort, quick sort and so on) and Big O Notation in **C language**.
 
 ## Technologies
-* Scripts written in Bash 4.3.11(1)
-* C files are compiled using `gcc 4.8.4`
-* Tested on Ubuntu 14.04 LTS
+* C files are compiled using `gcc 9.4.0`
+* Tested on Ubuntu 20.04.1 LTS
 
 ## Files
 All of the following programs are written in C:
