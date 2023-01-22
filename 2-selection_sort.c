@@ -1,13 +1,17 @@
 #include "sort.h"
+
 /**
  * selection_sort - sorts an array of number using selection sort
- * @array: the array contains numbers\
- * size: the array size
- * Return:void
+ * @array: the array contains numbers
+ * @size: the array size
  */
+
 void selection_sort(int *array, size_t size)
 {
 	size_t i;
+
+	if (array == NULL)
+		return;
 
 	for (i = 0; i < size; i++)
 	{
@@ -16,7 +20,7 @@ void selection_sort(int *array, size_t size)
 
 		flag = 0;
 		min_Num = array[i];
-		for (j = i+1; j < size; j++)
+		for (j = i + 1; j < size; j++)
 		{
 			if (array[j] < min_Num)
 			{
@@ -30,8 +34,8 @@ void selection_sort(int *array, size_t size)
 			hold = array[i];
 			array[i] = array[temp];
 			array[temp] = hold;
+			print_array(array, size);
 		}
 		flag = 0;
-		print_array(array, size);
 	}
 }
