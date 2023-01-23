@@ -1,6 +1,12 @@
 #include "sort.h"
-
-int partition(int *array[], int low, int high, size_t size)
+/**
+ * partition - this collects the pivot of the array
+ * @array: array to be worked on;
+ * @low: low point of the array
+ * @high: high point of the array
+ * @size: this contains the size of the array
+ */
+int partition(int *array, int low, int high, size_t size)
 {
 	int pivot;
 	int i,j,temp;
@@ -26,6 +32,7 @@ int partition(int *array[], int low, int high, size_t size)
 		temp = array[i+1];
 		array[i+1] = array[high];
 		array[high] = temp;
+		print_array(array, size);
 	}
 	return (i+1);
 }
@@ -43,9 +50,9 @@ void sort(int *array, int low, int high, size_t size)
 	{
 		int pa;
 
-		pa = partition(array, low, high, size_t size);
-		sort(array, low, pa-1);
-		sort(array, pa+1, high);
+		pa = partition(array, low, high, size);
+		sort(array, low, pa-1, size);
+		sort(array, pa+1, high, size);
 	}
 }
 /**
@@ -55,5 +62,5 @@ void sort(int *array, int low, int high, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-	sort(array, o, size-1);
+	sort(array, 0, size-1, size);
 }
