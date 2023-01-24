@@ -5,15 +5,16 @@
  * @low: low point of the array
  * @high: high point of the array
  * @size: this contains the size of the array
+ * Return: this returns the pivot position
  */
 int partition(int *array, int low, int high, size_t size)
 {
 	int pivot;
-	int i,j,temp;
+	int i, j, temp;
 
 	pivot = array[high];
-	i = (low-1);
-	for (j = low; j<=high - 1; j++)
+	i = (low - 1);
+	for (j = low; j <= high - 1; j++)
 	{
 		if (array[j] <= pivot)
 		{
@@ -27,14 +28,14 @@ int partition(int *array, int low, int high, size_t size)
 			}
 		}
 	}
-	if (i+1 != high)
+	if (i + 1 != high)
 	{
-		temp = array[i+1];
-		array[i+1] = array[high];
+		temp = array[i + 1];
+		array[i + 1] = array[high];
 		array[high] = temp;
 		print_array(array, size);
 	}
-	return (i+1);
+	return (i + 1);
 }
 
 
@@ -43,6 +44,7 @@ int partition(int *array, int low, int high, size_t size)
  * @array: the array to be sorted
  * @low: low point of the array
  * @high: high point of the array
+ * @size: the size of the array
  */
 void sort(int *array, int low, int high, size_t size)
 {
@@ -51,16 +53,17 @@ void sort(int *array, int low, int high, size_t size)
 		int pa;
 
 		pa = partition(array, low, high, size);
-		sort(array, low, pa-1, size);
-		sort(array, pa+1, high, size);
+		sort(array, low, pa - 1, size);
+		sort(array, pa + 1, high, size);
 	}
 }
+
 /**
  * quick_sort - this sorts the list using the quick sort method
- * @array - this contains the array to be sorted
- * @size - this contains the size of the array
+ * @array: this contains the array to be sorted
+ * @size: this contains the size of the array
  */
 void quick_sort(int *array, size_t size)
 {
-	sort(array, 0, size-1, size);
+	sort(array, 0, size - 1, size);
 }
