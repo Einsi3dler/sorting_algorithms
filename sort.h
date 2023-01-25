@@ -34,4 +34,6 @@ void merge_sort(int *array, size_t size);
 /*util functions*/
 int partition(int *array, int low, int high, size_t size);
 void sort(int *array, int low, int high, size_t size);
+void merge_algo(int *array, int low, int high);
+void merge(int *array, int low, int mid, int high);
 #endif /*SORT_H*/

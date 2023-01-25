@@ -1,48 +1,48 @@
 #include "sort.h"
-void merge(int *array, int low, int mid, int high)
+#include <stdio.h>
+#include <stdlib.h>
+
+// Merges two subarrays of arr[].
+// First subarray is arr[l..m]
+// Second subarray is arr[m+1..r]
+void merge(int arr[], int low,int mid, int high)
 {
-	int i,j,k,temp1,temp2;
+	int left_len = m-l;
+	int right_len = r- m + 1;
 
-	temp1 = mid - low + 1;
-	temp2 = high - mid;
+	int temp_left_arr[left_len];
+	int temp_right_arr[right_len];
 
-	int arr1[temp1], int arr2[temp2];
+	int i, j, k;
 
-	for (i=0; i<temp1; i++)
+	for (int i = 0; i < left_length; i++)
 	{
-		arr1[i] = array[low + i];
+		temp_left_arr[i] = arr[low + i];
 	}
-	for (j=0; j<temp2; j++)
+
+	for (int i = 0; i < right_length; i++)
 	{
-		arr2[i] = array[mid + 1 + j]
+		temp_right_arr[i] = a[mid + i];
 	}
+
 }
-/**
- * merge_algo: this is the merge sort algorithim
- * @array - this contains the array to be sorted
- * @low - low point of the array
- * @high - high point of the array
- */
-void merge_algo(int *array, int low, int high)
+void merge_algo(int arr[], int low, int high)
 {
-	if (low < high)
+	if low < high
 	{
-		int mid;
+		int m;
+		mid = low + (high - low) / 2;
 
-		mid = low + (high - 1) /2;
-
-		merge_algo(arr, low , mid);
-		merge_algo(arr, mid+1, high);
+		merge_algo(arr, low, mid-1);
+		merge_algo(arr, mid, high);
 
 		merge(arr, low, mid, high)
-	}
-}
-/**
- * merge_sort - this sorts an array of integers in ascending order through merge sort
- * @array: array of integers
- * @size: size of int
- */
- void merge_sort(int *array, size_t size)
-{
 
+	}
+
+}
+
+void merge_sort(int *array, size_t size)
+{
+	merge_algo(array, 0, size-1);
 }
