@@ -7,37 +7,62 @@
 // Second subarray is arr[m+1..r]
 void merge(int arr[], int low,int mid, int high)
 {
-	int left_len = m-l;
-	int right_len = r- m + 1;
+	int left_len = mid - low + 1;
+	int right_len = high - mid;
 
 	int temp_left_arr[left_len];
 	int temp_right_arr[right_len];
 
 	int i, j, k;
 
-	for (int i = 0; i < left_length; i++)
+	for (int i = 0; i < left_len; i++)
 	{
 		temp_left_arr[i] = arr[low + i];
 	}
 
-	for (int i = 0; i < right_length; i++)
+	for (int i = 0; i < right_len; i++)
 	{
-		temp_right_arr[i] = a[mid + i];
+		temp_right_arr[i] = arr[mid + 1 + i];
 	}
+
+	printf("left: ");
+	print_array(temp_left_arr, left_len);
+	printf("Right: ");
+	print_array(temp_right_arr, right_len);
+
+//	print_array(temp_left_arr, left_len);
+//	print_array(temp_right_arr, right_len);
+
+	for (i=0, j=0, k=low; k<= high; k++)
+	{
+		if((i < left_len) && (j >= right_len || temp_left_arr[i] <= temp_right_arr[j]))
+		{
+			arr[k] = temp_left_arr[i];
+			i++;
+		}
+		else
+		{
+			arr[k] = temp_right_arr[j];
+			j++;
+		}
+	}
+
+	printf("done");
+	print_array(arr, high);
 
 }
 void merge_algo(int arr[], int low, int high)
 {
-	if low < high
+	if (low < high)
 	{
-		int m;
-		mid = low + (high - low) / 2;
+		int mid;
+		mid = low + ((high+1) - low) / 2;
+		mid = mid - 1;
 
-		merge_algo(arr, low, mid-1);
-		merge_algo(arr, mid, high);
+		merge_algo(arr, low, mid);
+		merge_algo(arr, mid+1, high);
 
-		merge(arr, low, mid, high)
-
+		merge(arr, low, mid, high); 
 	}
 
 }
